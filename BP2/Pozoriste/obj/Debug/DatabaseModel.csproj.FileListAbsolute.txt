@@ -1,0 +1,12 @@
+C:\Users\jovan\source\repos\BP2\Pozoriste\bin\Debug\DatabaseModel.dll.config
+C:\Users\jovan\source\repos\BP2\Pozoriste\bin\Debug\DatabaseModel.dll
+C:\Users\jovan\source\repos\BP2\Pozoriste\bin\Debug\DatabaseModel.pdb
+C:\Users\jovan\source\repos\BP2\Pozoriste\bin\Debug\EntityFramework.dll
+C:\Users\jovan\source\repos\BP2\Pozoriste\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jovan\source\repos\BP2\Pozoriste\bin\Debug\EntityFramework.xml
+C:\Users\jovan\source\repos\BP2\Pozoriste\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jovan\source\repos\BP2\Pozoriste\obj\Debug\DatabaseModel.csprojAssemblyReference.cache
+C:\Users\jovan\source\repos\BP2\Pozoriste\obj\Debug\DatabaseModel.csproj.CoreCompileInputs.cache
+C:\Users\jovan\source\repos\BP2\Pozoriste\obj\Debug\DatabaseModel.csproj.CopyComplete
+C:\Users\jovan\source\repos\BP2\Pozoriste\obj\Debug\DatabaseModel.dll
+C:\Users\jovan\source\repos\BP2\Pozoriste\obj\Debug\DatabaseModel.pdb

@@ -1,0 +1,49 @@
+﻿<Application x:Class="UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:UI"
+			 xmlns:viewmodels="clr-namespace:UI.ViewModel" 
+			 xmlns:pozoriste="clr-namespace:UI.View.Pozoriste" 
+			 xmlns:predstava="clr-namespace:UI.View.Predstava" 
+			 xmlns:sala="clr-namespace:UI.View.Sala" 
+			 xmlns:glumac="clr-namespace:UI.View.Glumac" 
+			 xmlns:scenarista="clr-namespace:UI.View.Scenarista" 
+			 xmlns:loyaltyclan="clr-namespace:UI.View.LoyaltyClan" 
+			 xmlns:karta="clr-namespace:UI.View.Karta"
+			 StartupUri="View/MainWindow.xaml" >
+	<Application.Resources>
+		<DataTemplate DataType="{x:Type viewmodels:PozoristeViewModel}">
+			<pozoriste:PozoristeView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewmodels:PredstavaViewModel}">
+			<predstava:PredstavaView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewmodels:SalaViewModel}">
+			<sala:SalaView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewmodels:GlumacViewModel}">
+			<glumac:GlumacView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewmodels:ScenaristaViewModel}">
+			<scenarista:ScenaristaView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewmodels:LoyaltyClanViewModel}">
+			<loyaltyclan:LoyaltyClanView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewmodels:KartaViewModel}">
+			<karta:KartaView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewmodels:AddPredstaveViewModel}">
+			<pozoriste:AddPredstaveView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewmodels:AddUlogeViewModel}">
+			<glumac:AddUlogeView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewmodels:AddScenarioViewModel}">
+			<scenarista:AddScenarioView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewmodels:AddPredstavaToSalaViewModel}">
+			<sala:AddPredstavaToSalaView/>
+		</DataTemplate>
+	</Application.Resources>
+</Application>

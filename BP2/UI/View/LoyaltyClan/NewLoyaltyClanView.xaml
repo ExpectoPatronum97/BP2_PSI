@@ -1,0 +1,137 @@
+﻿<Window x:Class="UI.View.LoyaltyClan.NewLoyaltyClanView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.View.LoyaltyClan"
+        mc:Ignorable="d"
+        Title="Loyalty član" Height="320" Width="330" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+	<Window.Resources>
+		<Style TargetType="{x:Type Button}">
+			<Setter Property="Background" Value="#272727" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="SnapsToDevicePixels" Value="True" />
+
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Border CornerRadius="10" Background="{TemplateBinding Background}">
+							<ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsEnabled" Value="False">
+								<Setter Property="Background" Value="#777777"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="{x:Type Label}">
+			<Setter Property="Background" Value="#474747"/>
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="SnapsToDevicePixels" Value="True" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Label}">
+						<Border BorderBrush="{TemplateBinding BorderBrush}" 
+								BorderThickness="{TemplateBinding BorderThickness}" 
+								Background="{TemplateBinding Background}" 
+								Padding="{TemplateBinding Padding}" 
+								SnapsToDevicePixels="true" 
+								CornerRadius="15">
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+											  RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+											  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="{x:Type TextBox}">
+			<Setter Property="Background" Value="Silver"/>
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type TextBoxBase}">
+						<Border 
+								BorderThickness="{TemplateBinding BorderThickness}" 
+								Background="{TemplateBinding Background}" 
+								Padding="{TemplateBinding Padding}" 
+								CornerRadius="10">
+							<ScrollViewer Margin="10, 5" x:Name="PART_ContentHost" />
+						</Border>
+
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	<Grid Background="DarkGray">
+		<StackPanel Orientation="Vertical" Margin="5, 10">
+
+			<StackPanel Orientation="Horizontal">
+				<Label Content="Ime" Height="30" Width="80" Margin="10, 5" FontSize="14" 
+					   VerticalContentAlignment="center" HorizontalContentAlignment="center"/>
+				<TextBox Width="200" Height="35" VerticalContentAlignment="Center" MaxLines="1" 
+						 FontSize="15" Text="{Binding LoyaltyClan.Ime, UpdateSourceTrigger=PropertyChanged}" TabIndex="1"/>
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal">
+				<Label Content="Prezime" Height="30" Width="80" Margin="10, 5" FontSize="14" 
+					   VerticalContentAlignment="center" HorizontalContentAlignment="center"/>
+				<TextBox Width="200" Height="35" VerticalContentAlignment="Center" MaxLines="1" 
+						 FontSize="15" Text="{Binding LoyaltyClan.Prezime, UpdateSourceTrigger=PropertyChanged}" TabIndex="2"/>
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal">
+				<Label Content="JMBG" Height="30" Width="80" Margin="10, 5" FontSize="14" 
+					   VerticalContentAlignment="center" HorizontalContentAlignment="center"/>
+				<TextBox Width="200" Height="35" VerticalContentAlignment="Center" MaxLines="1"
+						 FontSize="15" Text="{Binding LoyaltyClan.JMBG, UpdateSourceTrigger=PropertyChanged}" TabIndex="3"/>
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal">
+				<Label Content="Tip" Height="30" Width="80" Margin="10, 5" FontSize="14" 
+					   VerticalContentAlignment="center" HorizontalContentAlignment="center"/>
+				<ComboBox Width="190" Height="30" VerticalAlignment="Center" FontSize="15" TabIndex="4" Margin="5"
+						  ItemsSource="{Binding Tipovi}" SelectedItem="{Binding SelectedTip, UpdateSourceTrigger=PropertyChanged}"
+						  IsEnabled="{Binding IsNew}"/>
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal">
+				<Label Content="{Binding LoyaltyLabelContent, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="80" Margin="10, 5" FontSize="14" 
+					   VerticalContentAlignment="center" HorizontalContentAlignment="center"/>
+				<TextBox Width="200" Height="35" VerticalContentAlignment="Center" MaxLines="1"
+						 FontSize="15" Text="{Binding SelectedExtra, UpdateSourceTrigger=PropertyChanged}" TabIndex="5"
+						 IsEnabled="{Binding IsNew}"/>
+			</StackPanel>
+			
+			
+			<Button Height="40" Content="Dodaj člana" FontSize="18" Margin="10, 5" 
+					Command="{Binding AddLoyaltyClanCommand}" IsDefault="True">
+				<Button.Visibility>
+					<Binding Path="IsNew">
+						<Binding.Converter>
+							<BooleanToVisibilityConverter />
+						</Binding.Converter>
+					</Binding>
+				</Button.Visibility>
+			</Button>
+
+			<Button Height="40" Content="Izmeni člana" FontSize="18" Margin="10, 5" 
+					Command="{Binding EditLoyaltyClanCommand}" IsDefault="True">
+				<Button.Visibility>
+					<Binding Path="IsEdit">
+						<Binding.Converter>
+							<BooleanToVisibilityConverter />
+						</Binding.Converter>
+					</Binding>
+				</Button.Visibility>
+			</Button>
+		</StackPanel>
+
+
+	</Grid>
+</Window>
+

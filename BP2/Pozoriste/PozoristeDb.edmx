@@ -1,0 +1,888 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PozoristeDb.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PozoristeDbStoreContainer">
+    <EntitySet Name="Pozorista" EntityType="PozoristeDb.Store.Pozorista" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Predstave" EntityType="PozoristeDb.Store.Predstave" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrganizujeN" EntityType="PozoristeDb.Store.OrganizujeN" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sale" EntityType="PozoristeDb.Store.Sale" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IgraN" EntityType="PozoristeDb.Store.IgraN" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Scenaristi" EntityType="PozoristeDb.Store.Scenaristi" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Glumci" EntityType="PozoristeDb.Store.Glumci" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NapisaoN" EntityType="PozoristeDb.Store.NapisaoN" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GlumioN" EntityType="PozoristeDb.Store.GlumioN" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Karte" EntityType="PozoristeDb.Store.Karte" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LoyaltyClanovi" EntityType="PozoristeDb.Store.LoyaltyClanovi" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Gledaoci" EntityType="PozoristeDb.Store.Gledaoci" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LoyaltyClanovi_VIP" EntityType="PozoristeDb.Store.LoyaltyClanovi_VIP" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LoyaltyClanovi_Senior" EntityType="PozoristeDb.Store.LoyaltyClanovi_Senior" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PozoristeOrganizuje" Association="PozoristeDb.Store.PozoristeOrganizuje">
+      <End Role="Pozoriste" EntitySet="Pozorista" />
+      <End Role="Organizuje" EntitySet="OrganizujeN" />
+    </AssociationSet>
+    <AssociationSet Name="PredstavaOrganizuje" Association="PozoristeDb.Store.PredstavaOrganizuje">
+      <End Role="Predstava" EntitySet="Predstave" />
+      <End Role="Organizuje" EntitySet="OrganizujeN" />
+    </AssociationSet>
+    <AssociationSet Name="SalaPozoriste" Association="PozoristeDb.Store.SalaPozoriste">
+      <End Role="Sala" EntitySet="Sale" />
+      <End Role="Pozoriste" EntitySet="Pozorista" />
+    </AssociationSet>
+    <AssociationSet Name="IgraSala" Association="PozoristeDb.Store.IgraSala">
+      <End Role="Igra" EntitySet="IgraN" />
+      <End Role="Sala" EntitySet="Sale" />
+    </AssociationSet>
+    <AssociationSet Name="PredstavaIgra" Association="PozoristeDb.Store.PredstavaIgra">
+      <End Role="Predstava" EntitySet="Predstave" />
+      <End Role="Igra" EntitySet="IgraN" />
+    </AssociationSet>
+    <AssociationSet Name="ScenaristaNapisao" Association="PozoristeDb.Store.ScenaristaNapisao">
+      <End Role="Scenarista" EntitySet="Scenaristi" />
+      <End Role="Napisao" EntitySet="NapisaoN" />
+    </AssociationSet>
+    <AssociationSet Name="PredstavaNapisao" Association="PozoristeDb.Store.PredstavaNapisao">
+      <End Role="Predstava" EntitySet="Predstave" />
+      <End Role="Napisao" EntitySet="NapisaoN" />
+    </AssociationSet>
+    <AssociationSet Name="GlumioGlumac" Association="PozoristeDb.Store.GlumioGlumac">
+      <End Role="Glumio" EntitySet="GlumioN" />
+      <End Role="Glumac" EntitySet="Glumci" />
+    </AssociationSet>
+    <AssociationSet Name="PredstavaGlumio" Association="PozoristeDb.Store.PredstavaGlumio">
+      <End Role="Predstava" EntitySet="Predstave" />
+      <End Role="Glumio" EntitySet="GlumioN" />
+    </AssociationSet>
+    <AssociationSet Name="IgraKarta" Association="PozoristeDb.Store.IgraKarta">
+      <End Role="Igra" EntitySet="IgraN" />
+      <End Role="Karta" EntitySet="Karte" />
+    </AssociationSet>
+    <AssociationSet Name="GledalacLoyaltyClan" Association="PozoristeDb.Store.GledalacLoyaltyClan">
+      <End Role="Gledalac" EntitySet="Gledaoci" />
+      <End Role="LoyaltyClan" EntitySet="LoyaltyClanovi" />
+    </AssociationSet>
+    <AssociationSet Name="GledalacKarta" Association="PozoristeDb.Store.GledalacKarta">
+      <End Role="Gledalac" EntitySet="Gledaoci" />
+      <End Role="Karta" EntitySet="Karte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VIP_inherits_LoyaltyClan" Association="PozoristeDb.Store.FK_VIP_inherits_LoyaltyClan">
+      <End Role="LoyaltyClan" EntitySet="LoyaltyClanovi" />
+      <End Role="VIP" EntitySet="LoyaltyClanovi_VIP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Senior_inherits_LoyaltyClan" Association="PozoristeDb.Store.FK_Senior_inherits_LoyaltyClan">
+      <End Role="LoyaltyClan" EntitySet="LoyaltyClanovi" />
+      <End Role="Senior" EntitySet="LoyaltyClanovi_Senior" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Pozorista">
+    <Key>
+      <PropertyRef Name="ID_Pozorista" />
+    </Key>
+    <Property Name="ID_Pozorista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mesto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ulica" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Naziv" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Predstave">
+    <Key>
+      <PropertyRef Name="ID_Predstave" />
+    </Key>
+    <Property Name="ID_Predstave" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naziv" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Trajanje" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrganizujeN">
+    <Key>
+      <PropertyRef Name="ID_Pozorista" />
+      <PropertyRef Name="ID_Predstave" />
+    </Key>
+    <Property Name="ID_Pozorista" Type="int" Nullable="false" />
+    <Property Name="ID_Predstave" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="ID_Sale" />
+      <PropertyRef Name="ID_Pozorista" />
+    </Key>
+    <Property Name="ID_Sale" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Broj_sedista" Type="int" Nullable="false" />
+    <Property Name="ID_Pozorista" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IgraN">
+    <Key>
+      <PropertyRef Name="ID_Sale" />
+      <PropertyRef Name="ID_Pozorista" />
+      <PropertyRef Name="ID_Predstave" />
+    </Key>
+    <Property Name="ID_Sale" Type="int" Nullable="false" />
+    <Property Name="ID_Pozorista" Type="int" Nullable="false" />
+    <Property Name="ID_Predstave" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Scenaristi">
+    <Key>
+      <PropertyRef Name="ID_Scenariste" />
+    </Key>
+    <Property Name="ID_Scenariste" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prezime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Broj_predstava" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Glumci">
+    <Key>
+      <PropertyRef Name="ID_Glumca" />
+    </Key>
+    <Property Name="ID_Glumca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prezime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ime_lika" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NapisaoN">
+    <Key>
+      <PropertyRef Name="ID_Predstave" />
+      <PropertyRef Name="ID_Scenariste" />
+    </Key>
+    <Property Name="ID_Scenariste" Type="int" Nullable="false" />
+    <Property Name="ID_Predstave" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GlumioN">
+    <Key>
+      <PropertyRef Name="ID_Glumca" />
+      <PropertyRef Name="ID_Predstave" />
+    </Key>
+    <Property Name="ID_Glumca" Type="int" Nullable="false" />
+    <Property Name="ID_Predstave" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Karte">
+    <Key>
+      <PropertyRef Name="ID_Karte" />
+    </Key>
+    <Property Name="ID_Karte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sediste" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Red" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Datum" Type="datetime" Nullable="false" />
+    <Property Name="Cena" Type="float" Nullable="false" />
+    <Property Name="ID_Sale" Type="int" Nullable="false" />
+    <Property Name="ID_Pozorista" Type="int" Nullable="false" />
+    <Property Name="ID_Predstave" Type="int" Nullable="false" />
+    <Property Name="GledalacRBR" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="LoyaltyClanovi">
+    <Key>
+      <PropertyRef Name="ID_Clana" />
+    </Key>
+    <Property Name="ID_Clana" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prezime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JMBG" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gledaoci">
+    <Key>
+      <PropertyRef Name="RBR" />
+    </Key>
+    <Property Name="RBR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Clana" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="LoyaltyClanovi_VIP">
+    <Key>
+      <PropertyRef Name="ID_Clana" />
+    </Key>
+    <Property Name="Popust" Type="int" Nullable="false" />
+    <Property Name="ID_Clana" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoyaltyClanovi_Senior">
+    <Key>
+      <PropertyRef Name="ID_Clana" />
+    </Key>
+    <Property Name="BPO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ID_Clana" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PozoristeOrganizuje">
+    <End Role="Pozoriste" Type="PozoristeDb.Store.Pozorista" Multiplicity="1" />
+    <End Role="Organizuje" Type="PozoristeDb.Store.OrganizujeN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pozoriste">
+        <PropertyRef Name="ID_Pozorista" />
+      </Principal>
+      <Dependent Role="Organizuje">
+        <PropertyRef Name="ID_Pozorista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PredstavaOrganizuje">
+    <End Role="Predstava" Type="PozoristeDb.Store.Predstave" Multiplicity="1" />
+    <End Role="Organizuje" Type="PozoristeDb.Store.OrganizujeN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Predstava">
+        <PropertyRef Name="ID_Predstave" />
+      </Principal>
+      <Dependent Role="Organizuje">
+        <PropertyRef Name="ID_Predstave" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SalaPozoriste">
+    <End Role="Sala" Type="PozoristeDb.Store.Sale" Multiplicity="*" />
+    <End Role="Pozoriste" Type="PozoristeDb.Store.Pozorista" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Pozoriste">
+        <PropertyRef Name="ID_Pozorista" />
+      </Principal>
+      <Dependent Role="Sala">
+        <PropertyRef Name="ID_Pozorista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IgraSala">
+    <End Role="Igra" Type="PozoristeDb.Store.IgraN" Multiplicity="*" />
+    <End Role="Sala" Type="PozoristeDb.Store.Sale" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Sala">
+        <PropertyRef Name="ID_Sale" />
+        <PropertyRef Name="ID_Pozorista" />
+      </Principal>
+      <Dependent Role="Igra">
+        <PropertyRef Name="ID_Sale" />
+        <PropertyRef Name="ID_Pozorista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PredstavaIgra">
+    <End Role="Predstava" Type="PozoristeDb.Store.Predstave" Multiplicity="1" />
+    <End Role="Igra" Type="PozoristeDb.Store.IgraN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Predstava">
+        <PropertyRef Name="ID_Predstave" />
+      </Principal>
+      <Dependent Role="Igra">
+        <PropertyRef Name="ID_Predstave" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ScenaristaNapisao">
+    <End Role="Scenarista" Type="PozoristeDb.Store.Scenaristi" Multiplicity="1" />
+    <End Role="Napisao" Type="PozoristeDb.Store.NapisaoN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scenarista">
+        <PropertyRef Name="ID_Scenariste" />
+      </Principal>
+      <Dependent Role="Napisao">
+        <PropertyRef Name="ID_Scenariste" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PredstavaNapisao">
+    <End Role="Predstava" Type="PozoristeDb.Store.Predstave" Multiplicity="1" />
+    <End Role="Napisao" Type="PozoristeDb.Store.NapisaoN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Predstava">
+        <PropertyRef Name="ID_Predstave" />
+      </Principal>
+      <Dependent Role="Napisao">
+        <PropertyRef Name="ID_Predstave" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GlumioGlumac">
+    <End Role="Glumio" Type="PozoristeDb.Store.GlumioN" Multiplicity="*" />
+    <End Role="Glumac" Type="PozoristeDb.Store.Glumci" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Glumac">
+        <PropertyRef Name="ID_Glumca" />
+      </Principal>
+      <Dependent Role="Glumio">
+        <PropertyRef Name="ID_Glumca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PredstavaGlumio">
+    <End Role="Predstava" Type="PozoristeDb.Store.Predstave" Multiplicity="1" />
+    <End Role="Glumio" Type="PozoristeDb.Store.GlumioN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Predstava">
+        <PropertyRef Name="ID_Predstave" />
+      </Principal>
+      <Dependent Role="Glumio">
+        <PropertyRef Name="ID_Predstave" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IgraKarta">
+    <End Role="Igra" Type="PozoristeDb.Store.IgraN" Multiplicity="1" />
+    <End Role="Karta" Type="PozoristeDb.Store.Karte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Igra">
+        <PropertyRef Name="ID_Sale" />
+        <PropertyRef Name="ID_Pozorista" />
+        <PropertyRef Name="ID_Predstave" />
+      </Principal>
+      <Dependent Role="Karta">
+        <PropertyRef Name="ID_Sale" />
+        <PropertyRef Name="ID_Pozorista" />
+        <PropertyRef Name="ID_Predstave" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GledalacLoyaltyClan">
+    <End Role="Gledalac" Type="PozoristeDb.Store.Gledaoci" Multiplicity="*" />
+    <End Role="LoyaltyClan" Type="PozoristeDb.Store.LoyaltyClanovi" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="LoyaltyClan">
+        <PropertyRef Name="ID_Clana" />
+      </Principal>
+      <Dependent Role="Gledalac">
+        <PropertyRef Name="ID_Clana" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GledalacKarta">
+    <End Role="Gledalac" Type="PozoristeDb.Store.Gledaoci" Multiplicity="0..1" />
+    <End Role="Karta" Type="PozoristeDb.Store.Karte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gledalac">
+        <PropertyRef Name="RBR" />
+      </Principal>
+      <Dependent Role="Karta">
+        <PropertyRef Name="GledalacRBR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VIP_inherits_LoyaltyClan">
+    <End Role="LoyaltyClan" Type="PozoristeDb.Store.LoyaltyClanovi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="VIP" Type="PozoristeDb.Store.LoyaltyClanovi_VIP" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="LoyaltyClan">
+        <PropertyRef Name="ID_Clana" />
+      </Principal>
+      <Dependent Role="VIP">
+        <PropertyRef Name="ID_Clana" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Senior_inherits_LoyaltyClan">
+    <End Role="LoyaltyClan" Type="PozoristeDb.Store.LoyaltyClanovi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Senior" Type="PozoristeDb.Store.LoyaltyClanovi_Senior" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="LoyaltyClan">
+        <PropertyRef Name="ID_Clana" />
+      </Principal>
+      <Dependent Role="Senior">
+        <PropertyRef Name="ID_Clana" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PozoristeDb" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="PozoristeDbContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Pozorista" EntityType="PozoristeDb.Pozoriste" />
+          <EntitySet Name="Predstave" EntityType="PozoristeDb.Predstava" />
+          <EntitySet Name="OrganizujeN" EntityType="PozoristeDb.Organizuje" />
+          <AssociationSet Name="PozoristeOrganizuje" Association="PozoristeDb.PozoristeOrganizuje">
+            <End Role="Pozoriste" EntitySet="Pozorista" />
+            <End Role="Organizuje" EntitySet="OrganizujeN" />
+          </AssociationSet>
+          <AssociationSet Name="PredstavaOrganizuje" Association="PozoristeDb.PredstavaOrganizuje">
+            <End Role="Predstava" EntitySet="Predstave" />
+            <End Role="Organizuje" EntitySet="OrganizujeN" />
+          </AssociationSet>
+          <EntitySet Name="Sale" EntityType="PozoristeDb.Sala" />
+          <AssociationSet Name="SalaPozoriste" Association="PozoristeDb.SalaPozoriste">
+            <End Role="Sala" EntitySet="Sale" />
+            <End Role="Pozoriste" EntitySet="Pozorista" />
+          </AssociationSet>
+          <EntitySet Name="IgraN" EntityType="PozoristeDb.Igra" />
+          <AssociationSet Name="IgraSala" Association="PozoristeDb.IgraSala">
+            <End Role="Igra" EntitySet="IgraN" />
+            <End Role="Sala" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="PredstavaIgra" Association="PozoristeDb.PredstavaIgra">
+            <End Role="Predstava" EntitySet="Predstave" />
+            <End Role="Igra" EntitySet="IgraN" />
+          </AssociationSet>
+          <EntitySet Name="Scenaristi" EntityType="PozoristeDb.Scenarista" />
+          <EntitySet Name="Glumci" EntityType="PozoristeDb.Glumac" />
+          <EntitySet Name="NapisaoN" EntityType="PozoristeDb.Napisao" />
+          <AssociationSet Name="ScenaristaNapisao" Association="PozoristeDb.ScenaristaNapisao">
+            <End Role="Scenarista" EntitySet="Scenaristi" />
+            <End Role="Napisao" EntitySet="NapisaoN" />
+          </AssociationSet>
+          <AssociationSet Name="PredstavaNapisao" Association="PozoristeDb.PredstavaNapisao">
+            <End Role="Predstava" EntitySet="Predstave" />
+            <End Role="Napisao" EntitySet="NapisaoN" />
+          </AssociationSet>
+          <EntitySet Name="GlumioN" EntityType="PozoristeDb.Glumi" />
+          <AssociationSet Name="GlumioGlumac" Association="PozoristeDb.GlumioGlumac">
+            <End Role="Glumio" EntitySet="GlumioN" />
+            <End Role="Glumac" EntitySet="Glumci" />
+          </AssociationSet>
+          <AssociationSet Name="PredstavaGlumio" Association="PozoristeDb.PredstavaGlumio">
+            <End Role="Predstava" EntitySet="Predstave" />
+            <End Role="Glumio" EntitySet="GlumioN" />
+          </AssociationSet>
+          <EntitySet Name="Karte" EntityType="PozoristeDb.Karta" />
+          <AssociationSet Name="IgraKarta" Association="PozoristeDb.IgraKarta">
+            <End Role="Igra" EntitySet="IgraN" />
+            <End Role="Karta" EntitySet="Karte" />
+          </AssociationSet>
+          <EntitySet Name="LoyaltyClanovi" EntityType="PozoristeDb.LoyaltyClan" />
+          <EntitySet Name="Gledaoci" EntityType="PozoristeDb.Gledalac" />
+          <AssociationSet Name="GledalacLoyaltyClan" Association="PozoristeDb.GledalacLoyaltyClan">
+            <End Role="Gledalac" EntitySet="Gledaoci" />
+            <End Role="LoyaltyClan" EntitySet="LoyaltyClanovi" />
+          </AssociationSet>
+          <AssociationSet Name="GledalacKarta" Association="PozoristeDb.GledalacKarta">
+            <End Role="Gledalac" EntitySet="Gledaoci" />
+            <End Role="Karta" EntitySet="Karte" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Pozoriste">
+          <Key>
+            <PropertyRef Name="ID_Pozorista" />
+          </Key>
+          <Property Name="ID_Pozorista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mesto" Type="String" Nullable="false" />
+          <Property Name="Ulica" Type="String" Nullable="false" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <NavigationProperty Name="OrganizujeN" Relationship="PozoristeDb.PozoristeOrganizuje" FromRole="Pozoriste" ToRole="Organizuje" />
+          <NavigationProperty Name="Sale" Relationship="PozoristeDb.SalaPozoriste" FromRole="Pozoriste" ToRole="Sala" />
+        </EntityType>
+        <EntityType Name="Predstava">
+          <Key>
+            <PropertyRef Name="ID_Predstave" />
+          </Key>
+          <Property Name="ID_Predstave" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" Nullable="false" />
+          <Property Name="Trajanje" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OrganizujeN" Relationship="PozoristeDb.PredstavaOrganizuje" FromRole="Predstava" ToRole="Organizuje" />
+          <NavigationProperty Name="IgraN" Relationship="PozoristeDb.PredstavaIgra" FromRole="Predstava" ToRole="Igra" />
+          <NavigationProperty Name="NapisaoN" Relationship="PozoristeDb.PredstavaNapisao" FromRole="Predstava" ToRole="Napisao" />
+          <NavigationProperty Name="GlumioN" Relationship="PozoristeDb.PredstavaGlumio" FromRole="Predstava" ToRole="Glumio" />
+        </EntityType>
+        <EntityType Name="Organizuje" >
+          <Key>
+            <PropertyRef Name="ID_Pozorista" />
+            <PropertyRef Name="ID_Predstave" />
+          </Key>
+          <NavigationProperty Name="Pozoriste" Relationship="PozoristeDb.PozoristeOrganizuje" FromRole="Organizuje" ToRole="Pozoriste" />
+          <Property Name="ID_Pozorista" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Predstava" Relationship="PozoristeDb.PredstavaOrganizuje" FromRole="Organizuje" ToRole="Predstava" />
+          <Property Name="ID_Predstave" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="PozoristeOrganizuje">
+          <End Type="PozoristeDb.Pozoriste" Role="Pozoriste" Multiplicity="1" />
+          <End Type="PozoristeDb.Organizuje" Role="Organizuje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pozoriste">
+              <PropertyRef Name="ID_Pozorista" />
+            </Principal>
+            <Dependent Role="Organizuje">
+              <PropertyRef Name="ID_Pozorista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PredstavaOrganizuje">
+          <End Type="PozoristeDb.Predstava" Role="Predstava" Multiplicity="1" />
+          <End Type="PozoristeDb.Organizuje" Role="Organizuje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Predstava">
+              <PropertyRef Name="ID_Predstave" />
+            </Principal>
+            <Dependent Role="Organizuje">
+              <PropertyRef Name="ID_Predstave" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Sala">
+          <Key>
+            <PropertyRef Name="ID_Sale" />
+            <PropertyRef Name="ID_Pozorista" />
+          </Key>
+          <Property Name="ID_Sale" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Broj_sedista" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pozoriste" Relationship="PozoristeDb.SalaPozoriste" FromRole="Sala" ToRole="Pozoriste" />
+          <Property Name="ID_Pozorista" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="IgraN" Relationship="PozoristeDb.IgraSala" FromRole="Sala" ToRole="Igra" />
+        </EntityType>
+        <Association Name="SalaPozoriste">
+          <End Type="PozoristeDb.Sala" Role="Sala" Multiplicity="*" />
+          <End Type="PozoristeDb.Pozoriste" Role="Pozoriste" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Pozoriste">
+              <PropertyRef Name="ID_Pozorista" />
+            </Principal>
+            <Dependent Role="Sala">
+              <PropertyRef Name="ID_Pozorista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Igra" >
+          <Key>
+            <PropertyRef Name="ID_Sale" />
+            <PropertyRef Name="ID_Pozorista" />
+            <PropertyRef Name="ID_Predstave" />
+          </Key>
+          <NavigationProperty Name="Sala" Relationship="PozoristeDb.IgraSala" FromRole="Igra" ToRole="Sala" />
+          <Property Name="ID_Sale" Type="Int32" Nullable="false" />
+          <Property Name="ID_Pozorista" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Predstava" Relationship="PozoristeDb.PredstavaIgra" FromRole="Igra" ToRole="Predstava" />
+          <Property Name="ID_Predstave" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Karte" Relationship="PozoristeDb.IgraKarta" FromRole="Igra" ToRole="Karta" />
+        </EntityType>
+        <Association Name="IgraSala">
+          <End Type="PozoristeDb.Igra" Role="Igra" Multiplicity="*" />
+          <End Type="PozoristeDb.Sala" Role="Sala" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Sala">
+              <PropertyRef Name="ID_Sale" />
+              <PropertyRef Name="ID_Pozorista" />
+            </Principal>
+            <Dependent Role="Igra">
+              <PropertyRef Name="ID_Sale" />
+              <PropertyRef Name="ID_Pozorista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PredstavaIgra">
+          <End Type="PozoristeDb.Predstava" Role="Predstava" Multiplicity="1" />
+          <End Type="PozoristeDb.Igra" Role="Igra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Predstava">
+              <PropertyRef Name="ID_Predstave" />
+            </Principal>
+            <Dependent Role="Igra">
+              <PropertyRef Name="ID_Predstave" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Scenarista">
+          <Key>
+            <PropertyRef Name="ID_Scenariste" />
+          </Key>
+          <Property Name="ID_Scenariste" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" Nullable="false" />
+          <Property Name="Prezime" Type="String" Nullable="false" />
+          <Property Name="Broj_predstava" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NapisaoN" Relationship="PozoristeDb.ScenaristaNapisao" FromRole="Scenarista" ToRole="Napisao" />
+        </EntityType>
+        <EntityType Name="Glumac">
+          <Key>
+            <PropertyRef Name="ID_Glumca" />
+          </Key>
+          <Property Name="ID_Glumca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" Nullable="false" />
+          <Property Name="Prezime" Type="String" Nullable="false" />
+          <Property Name="Ime_lika" Type="String" Nullable="false" />
+          <NavigationProperty Name="GlumioN" Relationship="PozoristeDb.GlumioGlumac" FromRole="Glumac" ToRole="Glumio" />
+        </EntityType>
+        <EntityType Name="Napisao" >
+          <Key>
+            <PropertyRef Name="ID_Predstave" />
+            <PropertyRef Name="ID_Scenariste" />
+          </Key>
+          <NavigationProperty Name="Scenarista" Relationship="PozoristeDb.ScenaristaNapisao" FromRole="Napisao" ToRole="Scenarista" />
+          <Property Name="ID_Scenariste" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Predstava" Relationship="PozoristeDb.PredstavaNapisao" FromRole="Napisao" ToRole="Predstava" />
+          <Property Name="ID_Predstave" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ScenaristaNapisao">
+          <End Type="PozoristeDb.Scenarista" Role="Scenarista" Multiplicity="1" />
+          <End Type="PozoristeDb.Napisao" Role="Napisao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scenarista">
+              <PropertyRef Name="ID_Scenariste" />
+            </Principal>
+            <Dependent Role="Napisao">
+              <PropertyRef Name="ID_Scenariste" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PredstavaNapisao">
+          <End Type="PozoristeDb.Predstava" Role="Predstava" Multiplicity="1" />
+          <End Type="PozoristeDb.Napisao" Role="Napisao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Predstava">
+              <PropertyRef Name="ID_Predstave" />
+            </Principal>
+            <Dependent Role="Napisao">
+              <PropertyRef Name="ID_Predstave" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Glumi" >
+          <Key>
+            <PropertyRef Name="ID_Glumca" />
+            <PropertyRef Name="ID_Predstave" />
+          </Key>
+          <NavigationProperty Name="Glumac" Relationship="PozoristeDb.GlumioGlumac" FromRole="Glumio" ToRole="Glumac" />
+          <Property Name="ID_Glumca" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Predstava" Relationship="PozoristeDb.PredstavaGlumio" FromRole="Glumio" ToRole="Predstava" />
+          <Property Name="ID_Predstave" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="GlumioGlumac">
+          <End Type="PozoristeDb.Glumi" Role="Glumio" Multiplicity="*" />
+          <End Type="PozoristeDb.Glumac" Role="Glumac" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Glumac">
+              <PropertyRef Name="ID_Glumca" />
+            </Principal>
+            <Dependent Role="Glumio">
+              <PropertyRef Name="ID_Glumca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PredstavaGlumio">
+          <End Type="PozoristeDb.Predstava" Role="Predstava" Multiplicity="1" />
+          <End Type="PozoristeDb.Glumi" Role="Glumio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Predstava">
+              <PropertyRef Name="ID_Predstave" />
+            </Principal>
+            <Dependent Role="Glumio">
+              <PropertyRef Name="ID_Predstave" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Karta">
+          <Key>
+            <PropertyRef Name="ID_Karte" />
+          </Key>
+          <Property Name="ID_Karte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sediste" Type="String" Nullable="false" />
+          <Property Name="Red" Type="String" Nullable="false" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" />
+          <Property Name="Cena" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Igra" Relationship="PozoristeDb.IgraKarta" FromRole="Karta" ToRole="Igra" />
+          <Property Name="ID_Sale" Type="Int32" Nullable="false" />
+          <Property Name="ID_Pozorista" Type="Int32" Nullable="false" />
+          <Property Name="ID_Predstave" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Gledalac" Relationship="PozoristeDb.GledalacKarta" FromRole="Karta" ToRole="Gledalac" />
+          <Property Name="GledalacRBR" Type="Int32" Nullable="true" />
+        </EntityType>
+        <Association Name="IgraKarta">
+          <End Type="PozoristeDb.Igra" Role="Igra" Multiplicity="1" />
+          <End Type="PozoristeDb.Karta" Role="Karta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Igra">
+              <PropertyRef Name="ID_Sale" />
+              <PropertyRef Name="ID_Pozorista" />
+              <PropertyRef Name="ID_Predstave" />
+            </Principal>
+            <Dependent Role="Karta">
+              <PropertyRef Name="ID_Sale" />
+              <PropertyRef Name="ID_Pozorista" />
+              <PropertyRef Name="ID_Predstave" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LoyaltyClan">
+          <Key>
+            <PropertyRef Name="ID_Clana" />
+          </Key>
+          <Property Name="ID_Clana" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" Nullable="false" />
+          <Property Name="Prezime" Type="String" Nullable="false" />
+          <Property Name="JMBG" Type="String" Nullable="false" />
+          <NavigationProperty Name="Gledaoci" Relationship="PozoristeDb.GledalacLoyaltyClan" FromRole="LoyaltyClan" ToRole="Gledalac" />
+        </EntityType>
+        <EntityType Name="VIP" BaseType="PozoristeDb.LoyaltyClan" >
+          <Property Name="Popust" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Senior" BaseType="PozoristeDb.LoyaltyClan" >
+          <Property Name="BPO" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gledalac">
+          <Key>
+            <PropertyRef Name="RBR" />
+          </Key>
+          <Property Name="RBR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="LoyaltyClan" Relationship="PozoristeDb.GledalacLoyaltyClan" FromRole="Gledalac" ToRole="LoyaltyClan" />
+          <Property Name="ID_Clana" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Karte" Relationship="PozoristeDb.GledalacKarta" FromRole="Gledalac" ToRole="Karta" />
+        </EntityType>
+        <Association Name="GledalacLoyaltyClan">
+          <End Type="PozoristeDb.Gledalac" Role="Gledalac" Multiplicity="*" />
+          <End Type="PozoristeDb.LoyaltyClan" Role="LoyaltyClan" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="LoyaltyClan">
+              <PropertyRef Name="ID_Clana" />
+            </Principal>
+            <Dependent Role="Gledalac">
+              <PropertyRef Name="ID_Clana" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GledalacKarta">
+          <End Type="PozoristeDb.Gledalac" Role="Gledalac" Multiplicity="0..1" />
+          <End Type="PozoristeDb.Karta" Role="Karta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gledalac">
+              <PropertyRef Name="RBR" />
+            </Principal>
+            <Dependent Role="Karta">
+              <PropertyRef Name="GledalacRBR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PozoristeDbStoreContainer" CdmEntityContainer="PozoristeDbContainer">
+    <EntitySetMapping Name="Pozorista">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Pozoriste)">
+        <MappingFragment StoreEntitySet="Pozorista">
+          <ScalarProperty Name="ID_Pozorista" ColumnName="ID_Pozorista" />
+          <ScalarProperty Name="Mesto" ColumnName="Mesto" />
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Predstave">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Predstava)">
+        <MappingFragment StoreEntitySet="Predstave">
+          <ScalarProperty Name="ID_Predstave" ColumnName="ID_Predstave" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Trajanje" ColumnName="Trajanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizujeN">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Organizuje)">
+        <MappingFragment StoreEntitySet="OrganizujeN">
+          <ScalarProperty Name="ID_Pozorista" ColumnName="ID_Pozorista" />
+          <ScalarProperty Name="ID_Predstave" ColumnName="ID_Predstave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sale">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Sala)">
+        <MappingFragment StoreEntitySet="Sale">
+          <ScalarProperty Name="ID_Sale" ColumnName="ID_Sale" />
+          <ScalarProperty Name="ID_Pozorista" ColumnName="ID_Pozorista" />
+          <ScalarProperty Name="Broj_sedista" ColumnName="Broj_sedista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IgraN">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Igra)">
+        <MappingFragment StoreEntitySet="IgraN">
+          <ScalarProperty Name="ID_Sale" ColumnName="ID_Sale" />
+          <ScalarProperty Name="ID_Pozorista" ColumnName="ID_Pozorista" />
+          <ScalarProperty Name="ID_Predstave" ColumnName="ID_Predstave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scenaristi">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Scenarista)">
+        <MappingFragment StoreEntitySet="Scenaristi">
+          <ScalarProperty Name="ID_Scenariste" ColumnName="ID_Scenariste" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Broj_predstava" ColumnName="Broj_predstava" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Glumci">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Glumac)">
+        <MappingFragment StoreEntitySet="Glumci">
+          <ScalarProperty Name="ID_Glumca" ColumnName="ID_Glumca" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Ime_lika" ColumnName="Ime_lika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NapisaoN">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Napisao)">
+        <MappingFragment StoreEntitySet="NapisaoN">
+          <ScalarProperty Name="ID_Predstave" ColumnName="ID_Predstave" />
+          <ScalarProperty Name="ID_Scenariste" ColumnName="ID_Scenariste" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GlumioN">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Glumi)">
+        <MappingFragment StoreEntitySet="GlumioN">
+          <ScalarProperty Name="ID_Glumca" ColumnName="ID_Glumca" />
+          <ScalarProperty Name="ID_Predstave" ColumnName="ID_Predstave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Karte">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Karta)">
+        <MappingFragment StoreEntitySet="Karte">
+          <ScalarProperty Name="ID_Karte" ColumnName="ID_Karte" />
+          <ScalarProperty Name="Sediste" ColumnName="Sediste" />
+          <ScalarProperty Name="Red" ColumnName="Red" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+          <ScalarProperty Name="ID_Sale" ColumnName="ID_Sale" />
+          <ScalarProperty Name="ID_Pozorista" ColumnName="ID_Pozorista" />
+          <ScalarProperty Name="ID_Predstave" ColumnName="ID_Predstave" />
+          <ScalarProperty Name="GledalacRBR" ColumnName="GledalacRBR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoyaltyClanovi">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.LoyaltyClan)">
+        <MappingFragment StoreEntitySet="LoyaltyClanovi">
+          <ScalarProperty Name="ID_Clana" ColumnName="ID_Clana" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.VIP)">
+        <MappingFragment StoreEntitySet="LoyaltyClanovi_VIP">
+          <ScalarProperty Name="ID_Clana" ColumnName="ID_Clana" />
+          <ScalarProperty Name="Popust" ColumnName="Popust" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Senior)">
+        <MappingFragment StoreEntitySet="LoyaltyClanovi_Senior">
+          <ScalarProperty Name="ID_Clana" ColumnName="ID_Clana" />
+          <ScalarProperty Name="BPO" ColumnName="BPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gledaoci">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Gledalac)">
+        <MappingFragment StoreEntitySet="Gledaoci">
+          <ScalarProperty Name="RBR" ColumnName="RBR" />
+          <ScalarProperty Name="ID_Clana" ColumnName="ID_Clana" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

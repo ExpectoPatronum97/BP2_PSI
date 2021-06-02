@@ -1,0 +1,52 @@
+﻿<Window x:Class="UI.View.Scenarista.AddScenarioView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.View.Scenarista"
+        mc:Ignorable="d"
+        Title="Dodaj / ukloni scenarije scenaristi" Height="350" Width="460" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+	<Window.Resources>
+		<Style TargetType="{x:Type Button}">
+			<Setter Property="Background" Value="#272727" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="SnapsToDevicePixels" Value="True" />
+
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Border CornerRadius="10" Background="{TemplateBinding Background}">
+							<ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsEnabled" Value="False">
+								<Setter Property="Background" Value="#777777"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+
+	<Grid Background="DarkSlateGray">
+		<StackPanel Orientation="Horizontal" Margin="5">
+			<StackPanel Orientation="Vertical">
+				<Label Content="Dostupni scenariji"  Foreground="LightGray" FontSize="15"/>
+				<ListBox Height="260" Width="160" ItemsSource="{Binding DostupnePredstave}" DisplayMemberPath="Naziv"
+						 SelectedItem="{Binding SelectedDostupnaPredstava}" Margin="0 3"/>
+			</StackPanel>
+			<StackPanel Orientation="Vertical" Margin="30 90 40 0">
+				<Button Width="50" Height="30" Content=">>" Command="{Binding AddScenarioToScenaristaCommand}"/>
+				<Button Width="50" Height="30" Content="&lt;&lt;" Command="{Binding RemoveScenarioFromScenaristaCommand}"
+						Margin="0 50 0 0 "/>
+			</StackPanel>
+			<StackPanel Orientation="Vertical" >
+				<Label Content="Napisao scenario" Foreground="LightGray" FontSize="15"/>
+				<ListBox Height="260" Width="160" ItemsSource="{Binding TrenutnePredstave}" DisplayMemberPath="Naziv"
+						 SelectedItem="{Binding SelectedTrenutnaPredstava}" Margin="0 3"/>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</Window>
+        

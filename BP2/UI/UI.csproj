@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4A2BB6D-273A-439C-A51D-718A5168BBEF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commands\ExtraFunctionalityCommand.cs" />
+    <Compile Include="Commands\Glumac\AddGlumacCommand.cs" />
+    <Compile Include="Commands\Glumac\AddUlogaToGlumacCommand.cs" />
+    <Compile Include="Commands\Glumac\DeleteGlumacCommand.cs" />
+    <Compile Include="Commands\Glumac\EditGlumacCommand.cs" />
+    <Compile Include="Commands\Glumac\NewGlumacCommand.cs" />
+    <Compile Include="Commands\Glumac\RefreshGlumacCommand.cs" />
+    <Compile Include="Commands\Glumac\RemoveUlogaFromGlumacCommand.cs" />
+    <Compile Include="Commands\Glumac\ShowUlogeCommand.cs" />
+    <Compile Include="Commands\Glumac\UpdateGlumacCommand.cs" />
+    <Compile Include="Commands\Karta\AddKartaCommand.cs" />
+    <Compile Include="Commands\Karta\BuyTicketAsLoyaltyCommand.cs" />
+    <Compile Include="Commands\Karta\BuyTicketCommand.cs" />
+    <Compile Include="Commands\Karta\DeleteKartaCommand.cs" />
+    <Compile Include="Commands\Karta\EditKartaCommand.cs" />
+    <Compile Include="Commands\Karta\NewKartaCommand.cs" />
+    <Compile Include="Commands\Karta\RefreshKartaCommand.cs" />
+    <Compile Include="Commands\Karta\UpdateKartaCommand.cs" />
+    <Compile Include="Commands\LoyaltyClan\AddLoyaltyClanCommand.cs" />
+    <Compile Include="Commands\LoyaltyClan\DeleteLoyaltyClanCommand.cs" />
+    <Compile Include="Commands\LoyaltyClan\EditLoyaltyClanCommand.cs" />
+    <Compile Include="Commands\LoyaltyClan\NewLoyaltyClanCommand.cs" />
+    <Compile Include="Commands\LoyaltyClan\RefreshLoyaltyClanCommand.cs" />
+    <Compile Include="Commands\LoyaltyClan\UpdateLoyaltyClanCommand.cs" />
+    <Compile Include="Commands\Pozoriste\AddPozoristeCommand.cs" />
+    <Compile Include="Commands\Pozoriste\AddPredstavaToPozoristeCommand.cs" />
+    <Compile Include="Commands\Pozoriste\DeletePozoristeCommand.cs" />
+    <Compile Include="Commands\Pozoriste\EditPozoristeCommand.cs" />
+    <Compile Include="Commands\Pozoriste\NewPozoristeCommand.cs" />
+    <Compile Include="Commands\Pozoriste\RefreshPozoristeCommand.cs" />
+    <Compile Include="Commands\Pozoriste\RemovePredstavaFromPozoristeCommand.cs" />
+    <Compile Include="Commands\Pozoriste\ShowPozoristaCommand.cs" />
+    <Compile Include="Commands\Pozoriste\UpdatePozoristeCommand.cs" />
+    <Compile Include="Commands\Predstava\AddPredstavaCommand.cs" />
+    <Compile Include="Commands\Predstava\DeletePredstavaCommand.cs" />
+    <Compile Include="Commands\Predstava\EditPredstavaCommand.cs" />
+    <Compile Include="Commands\Predstava\NewPredstavaCommand.cs" />
+    <Compile Include="Commands\Predstava\RefreshPredstavaCommand.cs" />
+    <Compile Include="Commands\Predstava\ShowPredstaveCommand.cs" />
+    <Compile Include="Commands\Predstava\UpdatePredstavaCommand.cs" />
+    <Compile Include="Commands\Sala\AddPredstavaToSalaCommand.cs" />
+    <Compile Include="Commands\Sala\AddSalaCommand.cs" />
+    <Compile Include="Commands\Sala\DeleteSalaCommand.cs" />
+    <Compile Include="Commands\Sala\EditSalaCommand.cs" />
+    <Compile Include="Commands\Sala\NewSalaCommand.cs" />
+    <Compile Include="Commands\Sala\RefreshSalaCommand.cs" />
+    <Compile Include="Commands\Sala\RemovePredstavaFromSalaCommand.cs" />
+    <Compile Include="Commands\Sala\ShowOdrzavanjaCommand.cs" />
+    <Compile Include="Commands\Sala\UpdateSalaCommand.cs" />
+    <Compile Include="Commands\Scenarista\AddScenarioToScenaristaCommand.cs" />
+    <Compile Include="Commands\Scenarista\AddScenaristaCommand.cs" />
+    <Compile Include="Commands\Scenarista\DeleteScenaristaCommand.cs" />
+    <Compile Include="Commands\Scenarista\EditScenaristaCommand.cs" />
+    <Compile Include="Commands\Scenarista\NewScenaristaCommand.cs" />
+    <Compile Include="Commands\Scenarista\RefreshScenaristaCommand.cs" />
+    <Compile Include="Commands\Scenarista\RemoveScenarioFromScenaristaCommand.cs" />
+    <Compile Include="Commands\Scenarista\ShowScenariosCommand.cs" />
+    <Compile Include="Commands\Scenarista\UpdateScenaristaCommand.cs" />
+    <Compile Include="ViewModel\Glumac\AddUlogeViewModel.cs" />
+    <Compile Include="ViewModel\Glumac\GlumacViewModel.cs" />
+    <Compile Include="ViewModel\Glumac\NewGlumacViewModel.cs" />
+    <Compile Include="ViewModel\Karta\KartaViewModel.cs" />
+    <Compile Include="ViewModel\Karta\NewKartaViewModel.cs" />
+    <Compile Include="ViewModel\LoyaltyClan\LoyaltyClanViewModel.cs" />
+    <Compile Include="ViewModel\LoyaltyClan\NewLoyaltyClanViewModel.cs" />
+    <Compile Include="ViewModel\Pozoriste\AddPredstaveViewModel.cs" />
+    <Compile Include="ViewModel\Pozoriste\NewPozoristeViewModel.cs" />
+    <Compile Include="ViewModel\Predstava\NewPredstavaViewModel.cs" />
+    <Compile Include="ViewModel\Sala\AddPredstavaToSalaViewModel.cs" />
+    <Compile Include="ViewModel\Sala\NewSalaViewModel.cs" />
+    <Compile Include="ViewModel\Scenarista\AddScenarioViewModel.cs" />
+    <Compile Include="ViewModel\Scenarista\NewScenaristaViewModel.cs" />
+    <Compile Include="ViewModel\Scenarista\ScenaristaViewModel.cs" />
+    <Compile Include="View\Glumac\AddUlogeView.xaml.cs">
+      <DependentUpon>AddUlogeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Glumac\GlumacView.xaml.cs">
+      <DependentUpon>GlumacView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Glumac\NewGlumacView.xaml.cs">
+      <DependentUpon>NewGlumacView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Karta\KartaView.xaml.cs">
+      <DependentUpon>KartaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Karta\NewKartaView.xaml.cs">
+      <DependentUpon>NewKartaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoyaltyClan\LoyaltyClanView.xaml.cs">
+      <DependentUpon>LoyaltyClanView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoyaltyClan\NewLoyaltyClanView.xaml.cs">
+      <DependentUpon>NewLoyaltyClanView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pozoriste\AddPredstaveView.xaml.cs">
+      <DependentUpon>AddPredstaveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pozoriste\NewPozoristeView.xaml.cs">
+      <DependentUpon>NewPozoristeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pozoriste\PozoristeView.xaml.cs">
+      <DependentUpon>PozoristeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Predstava\NewPredstavaView.xaml.cs">
+      <DependentUpon>NewPredstavaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Predstava\PredstavaView.xaml.cs">
+      <DependentUpon>PredstavaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sala\AddPredstavaToSalaView.xaml.cs">
+      <DependentUpon>AddPredstavaToSalaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sala\NewSalaView.xaml.cs">
+      <DependentUpon>NewSalaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sala\SalaView.xaml.cs">
+      <DependentUpon>SalaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Scenarista\AddScenarioView.xaml.cs">
+      <DependentUpon>AddScenarioView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Scenarista\NewScenaristaView.xaml.cs">
+      <DependentUpon>NewScenaristaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Scenarista\ScenaristaView.xaml.cs">
+      <DependentUpon>ScenaristaView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\Glumac\AddUlogeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Glumac\GlumacView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Glumac\NewGlumacView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Karta\KartaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Karta\NewKartaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoyaltyClan\LoyaltyClanView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoyaltyClan\NewLoyaltyClanView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BindableBase.cs" />
+    <Compile Include="Commands\NavigationCommand.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\Pozoriste\PozoristeViewModel.cs" />
+    <Compile Include="ViewModel\Predstava\PredstavaViewModel.cs" />
+    <Compile Include="ViewModel\Sala\SalaViewModel.cs" />
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\Pozoriste\AddPredstaveView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pozoriste\NewPozoristeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pozoriste\PozoristeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Predstava\NewPredstavaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Predstava\PredstavaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sala\AddPredstavaToSalaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sala\NewSalaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sala\SalaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Scenarista\AddScenarioView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Scenarista\NewScenaristaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Scenarista\ScenaristaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pozoriste\DatabaseModel.csproj">
+      <Project>{4991f79b-2db5-43c1-ae8c-ab3c60b205be}</Project>
+      <Name>DatabaseModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

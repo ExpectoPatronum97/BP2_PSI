@@ -1,0 +1,150 @@
+﻿<Window x:Class="UI.View.Karta.NewKartaView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.View.Karta"
+        mc:Ignorable="d"
+        Title="Karta" Height="360" Width="330" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+	<Window.Resources>
+
+		<Style TargetType="{x:Type Button}">
+			<Setter Property="Background" Value="#272727" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="SnapsToDevicePixels" Value="True" />
+
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Border CornerRadius="10" Background="{TemplateBinding Background}">
+							<ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsEnabled" Value="False">
+								<Setter Property="Background" Value="#777777"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="{x:Type Label}">
+			<Setter Property="Background" Value="#474747"/>
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="SnapsToDevicePixels" Value="True" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Label}">
+						<Border BorderBrush="{TemplateBinding BorderBrush}" 
+								BorderThickness="{TemplateBinding BorderThickness}" 
+								Background="{TemplateBinding Background}" 
+								Padding="{TemplateBinding Padding}" 
+								SnapsToDevicePixels="true" 
+								CornerRadius="15">
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+											  RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+											  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="{x:Type TextBox}">
+			<Setter Property="Background" Value="Silver"/>
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type TextBoxBase}">
+						<Border 
+								BorderThickness="{TemplateBinding BorderThickness}" 
+								Background="{TemplateBinding Background}" 
+								Padding="{TemplateBinding Padding}" 
+								CornerRadius="10">
+							<ScrollViewer Margin="10, 5" x:Name="PART_ContentHost" />
+						</Border>
+
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	<Grid Background="DarkGray">
+		<StackPanel Orientation="Vertical" Margin="5, 10">
+
+			<StackPanel Orientation="Horizontal">
+				<Label Content="Pozorište" Height="30" Width="80" Margin="10, 5" FontSize="14" 
+					   VerticalContentAlignment="center" HorizontalContentAlignment="center"/>
+				<ComboBox Width="195" Height="30" VerticalAlignment="Center" FontSize="15" TabIndex="1" Margin="5 0" 
+						  ItemsSource="{Binding Pozorista}" SelectedItem="{Binding SelectedPozoriste, UpdateSourceTrigger=PropertyChanged}"
+						  DisplayMemberPath="Naziv" IsSynchronizedWithCurrentItem="True" IsEnabled="{Binding IsNew}"/>
+			</StackPanel>
+			
+			<StackPanel Orientation="Horizontal">
+				<Label Content="Sala" Height="30" Width="80" Margin="10, 5" FontSize="14" 
+					   VerticalContentAlignment="center" HorizontalContentAlignment="center"/>
+				<ComboBox Width="195" Height="30" VerticalAlignment="Center" FontSize="15" TabIndex="2" Margin="5 0" 
+						  ItemsSource="{Binding Sale}" SelectedItem="{Binding SelectedSala, UpdateSourceTrigger=PropertyChanged}"
+						  DisplayMemberPath="ID_Sale" IsSynchronizedWithCurrentItem="True" IsEnabled="{Binding IsNew}"/>
+			</StackPanel>
+			
+			<StackPanel Orientation="Horizontal">
+				<Label Content="Predstava" Height="30" Width="80" Margin="10, 5" FontSize="14" 
+					   VerticalContentAlignment="center" HorizontalContentAlignment="center"/>
+				<ComboBox Width="194" Height="30" VerticalAlignment="Center" FontSize="15" TabIndex="3" Margin="5 0" 
+						  ItemsSource="{Binding Predstave}" SelectedItem="{Binding SelectedPredstava, UpdateSourceTrigger=PropertyChanged}"
+						  DisplayMemberPath="Naziv" IsSynchronizedWithCurrentItem="True" IsEnabled="{Binding IsNew}"/>
+			</StackPanel>
+	
+
+			<StackPanel Orientation="Horizontal">
+				<Label Content="Cena" Height="30" Width="80" Margin="10, 5" FontSize="14" 
+					   VerticalContentAlignment="center" HorizontalContentAlignment="center"/>
+				<TextBox Width="200" Height="35" VerticalContentAlignment="Center" MaxLines="1" HorizontalAlignment="Right"
+						 FontSize="15" Text="{Binding Karta.Cena, UpdateSourceTrigger=PropertyChanged}" TabIndex="4"/>
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal">
+				<Label Content="Red" Height="30" Width="60" Margin="10, 5" FontSize="14" 
+						VerticalContentAlignment="center" HorizontalContentAlignment="center"/>
+				<ComboBox Width="70" Height="28" VerticalAlignment="Center" FontSize="15" TabIndex="5"
+							ItemsSource="{Binding Redovi}" SelectedItem="{Binding Karta.Red, UpdateSourceTrigger=PropertyChanged}"/>
+
+				<Label Content="Sedište" Height="30" Width="60" Margin="10, 5" FontSize="14" 
+						VerticalContentAlignment="center" HorizontalContentAlignment="center"/>
+				<ComboBox Width="70" Height="28" VerticalAlignment="Center" FontSize="15" TabIndex="6"
+							ItemsSource="{Binding Sedista}" SelectedItem="{Binding Karta.Sediste, UpdateSourceTrigger=PropertyChanged}"/>
+				
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Content="Datum" Height="30" Width="80" Margin="10, 5" FontSize="14" 
+					   VerticalContentAlignment="center" HorizontalContentAlignment="center"/>
+				<DatePicker Width="200" Height="35" VerticalContentAlignment="Center"   BorderThickness="0"
+						 FontSize="15" TabIndex="7" SelectedDate="{Binding Karta.Datum, UpdateSourceTrigger=PropertyChanged}"/>
+			</StackPanel>
+			
+			<Button Height="40" Content="Dodaj kartu" FontSize="18" Margin="10, 10" 
+					Command="{Binding AddKartaCommand}" IsDefault="True">
+				<Button.Visibility>
+					<Binding Path="IsNew">
+						<Binding.Converter>
+							<BooleanToVisibilityConverter />
+						</Binding.Converter>
+					</Binding>
+				</Button.Visibility>
+			</Button>
+
+			<Button Height="40" Content="Izmeni kartu" FontSize="18" Margin="10, 5" 
+					Command="{Binding EditKartaCommand}" IsDefault="True">
+				<Button.Visibility>
+					<Binding Path="IsEdit">
+						<Binding.Converter>
+							<BooleanToVisibilityConverter />
+						</Binding.Converter>
+					</Binding>
+				</Button.Visibility>
+			</Button>
+		</StackPanel>
+
+
+	</Grid>
+</Window>

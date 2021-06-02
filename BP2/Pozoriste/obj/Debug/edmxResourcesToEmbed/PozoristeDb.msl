@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PozoristeDbStoreContainer" CdmEntityContainer="PozoristeDbContainer">
+    <EntitySetMapping Name="Pozorista">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Pozoriste)">
+        <MappingFragment StoreEntitySet="Pozorista">
+          <ScalarProperty Name="ID_Pozorista" ColumnName="ID_Pozorista" />
+          <ScalarProperty Name="Mesto" ColumnName="Mesto" />
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Predstave">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Predstava)">
+        <MappingFragment StoreEntitySet="Predstave">
+          <ScalarProperty Name="ID_Predstave" ColumnName="ID_Predstave" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Trajanje" ColumnName="Trajanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizujeN">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Organizuje)">
+        <MappingFragment StoreEntitySet="OrganizujeN">
+          <ScalarProperty Name="ID_Pozorista" ColumnName="ID_Pozorista" />
+          <ScalarProperty Name="ID_Predstave" ColumnName="ID_Predstave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sale">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Sala)">
+        <MappingFragment StoreEntitySet="Sale">
+          <ScalarProperty Name="ID_Sale" ColumnName="ID_Sale" />
+          <ScalarProperty Name="ID_Pozorista" ColumnName="ID_Pozorista" />
+          <ScalarProperty Name="Broj_sedista" ColumnName="Broj_sedista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IgraN">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Igra)">
+        <MappingFragment StoreEntitySet="IgraN">
+          <ScalarProperty Name="ID_Sale" ColumnName="ID_Sale" />
+          <ScalarProperty Name="ID_Pozorista" ColumnName="ID_Pozorista" />
+          <ScalarProperty Name="ID_Predstave" ColumnName="ID_Predstave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scenaristi">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Scenarista)">
+        <MappingFragment StoreEntitySet="Scenaristi">
+          <ScalarProperty Name="ID_Scenariste" ColumnName="ID_Scenariste" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Broj_predstava" ColumnName="Broj_predstava" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Glumci">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Glumac)">
+        <MappingFragment StoreEntitySet="Glumci">
+          <ScalarProperty Name="ID_Glumca" ColumnName="ID_Glumca" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Ime_lika" ColumnName="Ime_lika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NapisaoN">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Napisao)">
+        <MappingFragment StoreEntitySet="NapisaoN">
+          <ScalarProperty Name="ID_Predstave" ColumnName="ID_Predstave" />
+          <ScalarProperty Name="ID_Scenariste" ColumnName="ID_Scenariste" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GlumioN">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Glumi)">
+        <MappingFragment StoreEntitySet="GlumioN">
+          <ScalarProperty Name="ID_Glumca" ColumnName="ID_Glumca" />
+          <ScalarProperty Name="ID_Predstave" ColumnName="ID_Predstave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Karte">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Karta)">
+        <MappingFragment StoreEntitySet="Karte">
+          <ScalarProperty Name="ID_Karte" ColumnName="ID_Karte" />
+          <ScalarProperty Name="Sediste" ColumnName="Sediste" />
+          <ScalarProperty Name="Red" ColumnName="Red" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+          <ScalarProperty Name="ID_Sale" ColumnName="ID_Sale" />
+          <ScalarProperty Name="ID_Pozorista" ColumnName="ID_Pozorista" />
+          <ScalarProperty Name="ID_Predstave" ColumnName="ID_Predstave" />
+          <ScalarProperty Name="GledalacRBR" ColumnName="GledalacRBR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoyaltyClanovi">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.LoyaltyClan)">
+        <MappingFragment StoreEntitySet="LoyaltyClanovi">
+          <ScalarProperty Name="ID_Clana" ColumnName="ID_Clana" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.VIP)">
+        <MappingFragment StoreEntitySet="LoyaltyClanovi_VIP">
+          <ScalarProperty Name="ID_Clana" ColumnName="ID_Clana" />
+          <ScalarProperty Name="Popust" ColumnName="Popust" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Senior)">
+        <MappingFragment StoreEntitySet="LoyaltyClanovi_Senior">
+          <ScalarProperty Name="ID_Clana" ColumnName="ID_Clana" />
+          <ScalarProperty Name="BPO" ColumnName="BPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gledaoci">
+      <EntityTypeMapping TypeName="IsTypeOf(PozoristeDb.Gledalac)">
+        <MappingFragment StoreEntitySet="Gledaoci">
+          <ScalarProperty Name="RBR" ColumnName="RBR" />
+          <ScalarProperty Name="ID_Clana" ColumnName="ID_Clana" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
